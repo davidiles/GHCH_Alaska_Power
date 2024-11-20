@@ -58,7 +58,7 @@ We assume in this example that there are 1000 GHCH pairs distributed across the 
 
 The plot below illustrates the spatial distribution of GHCH territories for one realization of the simulation.
 
-```{r chunk1, echo = FALSE,fig.width=10, fig.height=10}
+```{r chunk1, echo = FALSE,fig.width=6, fig.height=6}
 
 n_males = 1000
 n_ARU = 300
@@ -89,7 +89,7 @@ print(bird_plot)
 
 Next, we position a number of ARUs on the landscape.
 
-```{r chunk2, echo = FALSE,fig.width=10, fig.height=10}
+```{r chunk2, echo = FALSE,fig.width=6, fig.height=6}
 
 # --------------------------------------------------
 # Simulate ARU placement
@@ -110,7 +110,7 @@ if (nrow(aru_detections) > 0){
 aru_plot <- ggplot() +
   geom_sf(data = bird_TD,fill = "transparent", col = "blue", linetype = 2)+
   geom_sf(data = aru_sf, shape = 19)+
-  geom_sf(data = subset(bird_TD, det == "yes"), fill = "red",col = "red", shape = 4)+
+  geom_sf(data = subset(bird_TD, det == "yes"), fill = "red",col="red")+
   coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
   xlab("km")+ylab("km")+
   ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
