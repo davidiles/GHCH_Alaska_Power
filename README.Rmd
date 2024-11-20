@@ -60,30 +60,30 @@ The plot below illustrates the spatial distribution of GHCH territories for one 
 
 ```{r chunk1, echo = FALSE,fig.width=10, fig.height=10}
 
-  n_males = 1000
-  n_ARU = 300
-  
-  # --------------------------------------------------
-  # Simulate bird territories
-  # --------------------------------------------------
-  
-  # Bird territories
-  bird_centroids <- sample_n(birdgrid,n_males)
-  
-  # Detectable radius of each location
-  bird_TD = st_buffer(bird_centroids, bird_TrD)
-  
-  # Plot bird territories
-  bird_radius_m = round(bird_Tr*1000)
-  
-  bird_plot <- ggplot() +
-    geom_sf(data = bird_TD,fill = "transparent", col = "blue")+
-    scale_fill_manual(values = c("transparent","blue"),na.value = "transparent",name="Detection")+
-    coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
-    xlab("km")+ylab("km")+
-    ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
-  
-  print(bird_plot)
+n_males = 1000
+n_ARU = 300
+
+# --------------------------------------------------
+# Simulate bird territories
+# --------------------------------------------------
+
+# Bird territories
+bird_centroids <- sample_n(birdgrid,n_males)
+
+# Detectable radius of each location
+bird_TD = st_buffer(bird_centroids, bird_TrD)
+
+# Plot bird territories
+bird_radius_m = round(bird_Tr*1000)
+
+bird_plot <- ggplot() +
+  geom_sf(data = bird_TD,fill = "transparent", col = "blue")+
+  scale_fill_manual(values = c("transparent","blue"),na.value = "transparent",name="Detection")+
+  coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
+  xlab("km")+ylab("km")+
+  ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
+
+print(bird_plot)
 
 ```
 
@@ -91,38 +91,38 @@ Next, we position a number of ARUs on the landscape.
 
 ```{r chunk2, echo = FALSE,fig.width=10, fig.height=10}
 
-  # --------------------------------------------------
-  # Simulate ARU placement
-  # --------------------------------------------------
-  
-  # SRS sampling
-  aru_sf <- sample_n(ARUgrid,n_ARU)
-  
-  aru_detections <- sf::st_intersects(bird_TD,aru_sf) %>% as.data.frame()
-  
-  bird_TD$det = "no"
-  
-  if (nrow(aru_detections) > 0){
-    bird_TD$det[aru_detections[,1]] <- "yes"
-  }
-  
-  # Plot ARU locations
-  aru_plot <- ggplot() +
-    geom_sf(data = bird_TD,fill = "transparent", col = "blue", linetype = 2)+
-    geom_sf(data = aru_sf, shape = 19)+
-     geom_sf(data = subset(bird_TD, det == "yes"),col = "red", shape = 19, size = 10)+
-    coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
-    xlab("km")+ylab("km")+
-    ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
+# --------------------------------------------------
+# Simulate ARU placement
+# --------------------------------------------------
 
-  print(aru_plot)
-  
-   # --------------------------------------------------
-  # Calculate number of ARUs with detections
-  # --------------------------------------------------
-  n_ARU_det <- length(unique(aru_detections$col.id))
-  n_ARU_det
-  
+# SRS sampling
+aru_sf <- sample_n(ARUgrid,n_ARU)
+
+aru_detections <- sf::st_intersects(bird_TD,aru_sf) %>% as.data.frame()
+
+bird_TD$det = "no"
+
+if (nrow(aru_detections) > 0){
+  bird_TD$det[aru_detections[,1]] <- "yes"
+}
+
+# Plot ARU locations
+aru_plot <- ggplot() +
+  geom_sf(data = bird_TD,fill = "transparent", col = "blue", linetype = 2)+
+  geom_sf(data = aru_sf, shape = 19)+
+  geom_sf(data = subset(bird_TD, det == "yes"), fill = "red",col = "red", shape = 4)+
+  coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
+  xlab("km")+ylab("km")+
+  ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
+
+print(aru_plot)
+
+# --------------------------------------------------
+# Calculate number of ARUs with detections
+# --------------------------------------------------
+n_ARU_det <- length(unique(aru_detections$col.id))
+n_ARU_det
+
 ```
 
 In this example we positioned 300 ARUs, and obtained `r n_ARU_det` detections of GHCH.
