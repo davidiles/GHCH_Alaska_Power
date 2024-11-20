@@ -1,9 +1,27 @@
 ---
-title: "GHCH Simulation Analysis"
+title: "Gray-headed Chickadee Simulation Analysis"
 author: "David Iles"
-date: "`r Sys.Date()`"
-output: html_document
+date: "Generated on `r Sys.Date()`"
+output: 
+  md_document:
+    variant: markdown_github
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "png",
+  dev.args = list(type = "cairo-png"),
+  fig.width = 6,
+  fig.height = 4,
+  eval = TRUE,
+  echo = TRUE,
+  warning = FALSE,
+  error = FALSE,
+  message = FALSE
+)
+```
 
 # Motivation
 
