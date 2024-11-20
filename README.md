@@ -141,9 +141,19 @@ under realistic survey intensity and low population sizes.
 # Simulation results
 
 The plot below illustrates the number of detections that could be
-expected under various sampling intensity and population abundance
-scenarios. This figure illustrates that it is highly likely we would
-obtain at least one (and often more than one) detection under all the
+expected under various scenarios of sampling intensity and population
+abundance. This figure illustrates that it is highly likely we would
+obtain at least one (and often more than one) detection under any of the
 scenarios.
 
 ![](README_files/figure-markdown_github/chunk3-1.png)
+
+The plot below illustrates the mean population estimates for each
+scenario (across 1000 repeated simulations). Population estimates are
+nearly unbiased under all scenarios, and increasingly unbiased under
+higher sampling intensities. There is a tendency for the model to
+slightly over-estimate abundance when sampling intensity is low and when
+population abundance is low. Precision of the estimates increases as
+sampling intensity increases.
+
+![](README_files/figure-markdown_github/chunk4-1.png)
