@@ -2,9 +2,9 @@
 
     model {
 
-      # Informative prior on density
-      dens_prior_median <- 0.1
-      dens_prior_sd <- 1.5
+      # Moderately informative prior on density (assume it is low, but with enough uncertainty to capture higher densities)
+      dens_prior_median <- 0.2
+      dens_prior_sd <- 2
       
       dens ~ dlnorm(log(dens_prior_median),pow(dens_prior_sd,-2))
       popsize <- IAO_area * dens
