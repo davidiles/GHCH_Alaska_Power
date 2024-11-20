@@ -150,7 +150,8 @@ The plot below illustrates the number of detections that could be
 expected under various scenarios of sampling intensity and population
 abundance. This figure illustrates that it is highly likely we would
 obtain at least one (and often more than one) detection under any of the
-scenarios.
+scenarios. However, at lower values of population size and survey
+effort, the chance of getting zero detections increases.
 
 ![](README_files/figure-markdown_github/chunk3-1.png)
 
