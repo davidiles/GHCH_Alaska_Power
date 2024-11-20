@@ -40,9 +40,42 @@ Next, we position a number of ARUs on the landscape.
 
 ![](README_files/figure-markdown_github/chunk2-1.png)
 
-    #> [1] 5
-
 In this example we positioned 300 ARUs, and obtained 5 detections of
 GHCH.
+
+# Statistical analysis
+
+We analyze the resultant data (5 detections across 300 ARUs) using a
+Bayesian model. The model assumes that we know the effective detection
+radius for Gray-headed Chickadee that are surveyed by ARUs. The model
+further assumes that since ARUs are positioned and continuously
+monitoring for the entire breeding season, if the effective detection
+radius overlaps a GHCH territory it will detect the species at least
+once over the course of a season.
+
+The analysis is coded in the JAGS language:
+
+``` r
+
+    model {
+
+      # Moderately informative prior on density (assume it is low, but with enough uncertainty to capture higher densities)
+      dens_prior_median <- 0.2
+      dens_prior_sd <- 2
+      
+      dens ~ dlnorm(log(dens_prior_median),pow(dens_prior_sd,-2))
+      popsize <- IAO_area * dens
+      
+      total_area_detectable <- popsize * pi * (territory_radius + EDR)^2
+      proportion_detectable <- total_area_detectable/IAO_area
+      
+      # Likelihood
+      y ~ dbin(proportion_detectable, n_ARU)
+      
+      dens_prior ~ dlnorm(log(dens_prior_median),pow(dens_prior_sd,-2))
+      popsize_prior <- IAO_area * dens_prior
+    }
+    
+```
 
 # Simulation results
