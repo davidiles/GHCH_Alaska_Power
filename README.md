@@ -80,10 +80,16 @@ The analysis is coded in the JAGS language:
 ```
 
 In this code, we specific a relatively uninformative prior for density,
-and must supply as data the area of potentially suitable habitat
-(IAO_area = 10117 km<sup>2</sup>), number of ARUs we positioned in
-potentially suitable habitat (n_ARU = 300), and the number of ARUs that
-detected the species (y = 5) after being deployed for the entire season.
+and must supply as data the following objects:
+
+1.  area of potentially suitable habitat (IAO_area = 10117
+    km<sup>2</sup>)
+2.  the assumed effective detection radius for GHCH surveyed by ARUs
+3.  the assumed territory radius for GHCH
+4.  number of ARUs we positioned in potentially suitable habitat (n_ARU
+    = 300)
+5.  the number of ARUs that detected the species (y = 5) after being
+    deployed for the entire season
 
 In brief, the model attempts to estimate the range of population sizes
 (and population densities) that would be consistent with the observed
