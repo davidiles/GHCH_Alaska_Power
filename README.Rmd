@@ -149,6 +149,7 @@ The analysis is coded in the JAGS language:
       # Likelihood
       y ~ dbin(proportion_detectable, n_ARU)
       
+      # Output the priors to evaluate if they look reasonable
       dens_prior ~ dlnorm(log(dens_prior_median),pow(dens_prior_sd,-2))
       popsize_prior <- IAO_area * dens_prior
     }
