@@ -87,10 +87,7 @@ We assume in this example that there are 1000 GHCH pairs distributed across the 
 
 # Simulation results
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
+```{r chunk2, echo=FALSE}
 
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
