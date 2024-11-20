@@ -206,7 +206,7 @@ The plot below illustrates the number of detections that could be expected under
 n_det_plot <- ggplot(all_results)+
   geom_histogram(aes(x = n_detections), binwidth = 0.5)+
   facet_grid( study_area_label + n_ARU_label ~ n_male_label)+
-  geom_text(data = result_summary,aes(x = 10, y = 150, label = paste0("Pr. > 0 dets = ",signif(result_summary$detected_species,2))),hjust=0, size = 2)+
+  geom_text(data = result_summary,aes(x = 10, y = 150, label = paste0("Pr. > 0 dets = ",signif(result_summary$detected_species,2))),hjust=0, size = 3)+
   theme_bw()+
   xlab("Number of detections")+
   ylab("Frequency (number of simulations)")+
@@ -217,7 +217,7 @@ print(n_det_plot)
 
 The plot below illustrates the mean population estimates for each scenario (across 1000 repeated simulations).  Population estimates are nearly unbiased under all scenarios, and increasingly unbiased under higher sampling intensities.  There is a tendency for the model to slightly over-estimate abundance when sampling intensity is low and when population abundance is low.  Precision of the estimates increases as sampling intensity increases.
 
-```{r chunk4, echo=FALSE}
+```{r chunk4, echo=FALSE,fig.width=10, fig.height=5}
 
 # --------------------------------------------------
 # Plot expected counts under each scenario
