@@ -197,7 +197,7 @@ The goal of these simulations is to confirm that we would likely obtain detectio
 
 The plot below illustrates the number of detections that could be expected under various scenarios of sampling intensity and population abundance. This figure illustrates that it is highly likely we would obtain at least one (and often more than one) detection under any of the scenarios.
 
-```{r chunk3, echo=FALSE}
+```{r chunk3, echo=FALSE, echo = FALSE,fig.width=12, fig.height=6}
 
 # --------------------------------------------------
 # Plot expected number of detections under each scenario
