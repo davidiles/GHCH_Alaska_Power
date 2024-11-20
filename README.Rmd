@@ -206,7 +206,7 @@ The plot below illustrates the number of detections that could be expected under
 n_det_plot <- ggplot(all_results)+
   geom_histogram(aes(x = n_detections), binwidth = 0.5)+
   facet_grid( study_area_label + n_ARU_label ~ n_male_label)+
-  geom_text(data = result_summary,aes(x = 10, y = 150, label = paste0("Prob. of at least 1 detection = ",signif(result_summary$detected_species,2))),hjust=0, size = 3)+
+  geom_text(data = result_summary,aes(x = 10, y = 150, label = paste0("Pr. > 0 dets = ",signif(result_summary$detected_species,2))),hjust=0, size = 3)+
   theme_bw()+
   xlab("Number of detections")+
   ylab("Frequency (number of simulations)")+
