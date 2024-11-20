@@ -180,7 +180,7 @@ In brief, the model attempts to estimate the range of population sizes (and popu
     
 ```
 
-In this case, the estimate of population size is: `r round(out$q50$popsize)` with 95% equal-tailed credible interval of `r round(out$q2.5$popsize)` to `r round(out$q97.5$popsize)`.
+In this case, the estimate of number of GHCH pairs is: `r round(out$q50$popsize)` (95% CI = `r round(out$q2.5$popsize)` to `r round(out$q97.5$popsize)`); recall that the true population size in this simulation was `r n_males`.  The model estimates there is a `r 100*round(mean(out$sims.list$popsize < 1000),2)`% chance there are fewer than 1000 pairs in the study area.   
 
 ```{r jags_results2}
 ```

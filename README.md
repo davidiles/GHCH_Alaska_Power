@@ -110,8 +110,10 @@ conducted.
     
 ```
 
-In this case, the estimate of population size is: 685 with 95%
-equal-tailed credible interval of 257 to 1462.
+In this case, the estimate of number of GHCH pairs is: 685 (95% CI = 257
+to 1462); recall that the true population size in this simulation was
+1000. The model estimates there is a 83% chance there are fewer than
+1000 pairs in the study area.
 
 Application of the statistical model to
 
