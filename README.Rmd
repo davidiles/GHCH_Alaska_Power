@@ -155,6 +155,8 @@ The analysis is coded in the JAGS language:
     
 ```
 
+In this code, we specific a relatively uninformative prior for density, and must supply as data the area of potentially suitable habitat (IAO_area = `r plot_area` km<sup>2</sup>), number of ARUs we positioned in potentially suitable habitat (n_ARU = `r n_ARU`), and the number of ARUs that detected the species (y = `r n_ARU_det`) after being deployed for the entire season.
+
 
 # Simulation results
 
