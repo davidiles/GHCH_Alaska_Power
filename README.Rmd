@@ -87,7 +87,7 @@ The plot below illustrates the spatial distribution of GHCH territories for one 
 
 ```
 
-Next, we position a number of ARUs on the landscape (in this example we position 300 ARUs):
+Next, we position a number of ARUs on the landscape.
 
 ```{r chunk2, echo = FALSE,fig.width=10, fig.height=10}
 
@@ -117,7 +117,15 @@ Next, we position a number of ARUs on the landscape (in this example we position
 
   print(aru_plot)
   
+   # --------------------------------------------------
+  # Calculate number of ARUs with detections
+  # --------------------------------------------------
+  n_ARU_det <- length(unique(aru_detections$col.id))
+  n_ARU_det
+  
 ```
+
+In this example we positioned 300 ARUs, and obtained `r n_ARU_det` detections of GHCH.
 
 # Simulation results
 

@@ -36,9 +36,13 @@ for one realization of the simulation.
 
 ![](README_files/figure-markdown_github/chunk1-1.png)
 
-Next, we position a number of ARUs on the landscape (in this example we
-position 300 ARUs):
+Next, we position a number of ARUs on the landscape.
 
 ![](README_files/figure-markdown_github/chunk2-1.png)
+
+    #> [1] 5
+
+In this example we positioned 300 ARUs, and obtained 5 detections of
+GHCH.
 
 # Simulation results
