@@ -30,6 +30,11 @@ The goal of this study is to evaluate the sample size requirements to estimate p
 # Simulation description
 
 ```{r, include=FALSE, echo = FALSE}
+library(sp)
+library(sf)
+library(tidyverse)
+library(jagsUI)
+
 rm(list=ls())
 options(scipen=10000)
 load("power_wksp.RData")
@@ -51,7 +56,7 @@ The simulated data are then analyzed with a Bayesian model to produce estimates 
 
 We assume in this example that there are 1000 GHCH pairs distributed across the landscape, such that density is `r round(1000/plot_area,3)` birds/km<sup>2</sup>.
 
-```{r chunk1, eval = FALSE}
+```{r chunk1, echo = FALSE}
 
   n_males = 1000
   n_ARU = 300
@@ -69,12 +74,14 @@ We assume in this example that there are 1000 GHCH pairs distributed across the 
   # Plot bird territories
   bird_radius_m = round(bird_Tr*1000)
   
-  ggplot() +
+  bird_plot <- ggplot() +
     geom_sf(data = bird_TD,fill = "transparent", col = "blue")+
     scale_fill_manual(values = c("transparent","orangered"),na.value = "transparent",name="Detection")+
     coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
     xlab("km")+ylab("km")+
     ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
+  
+  print(bird_plot)
 
 ```
 

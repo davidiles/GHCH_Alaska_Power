@@ -29,31 +29,7 @@ are then used to conduct precision and power analyses.
 We assume in this example that there are 1000 GHCH pairs distributed
 across the landscape, such that density is 0.099 birds/km<sup>2</sup>.
 
-``` r
-
-  n_males = 1000
-  n_ARU = 300
-  
-  # --------------------------------------------------
-  # Simulate bird territories
-  # --------------------------------------------------
-  
-  # Bird territories
-  bird_centroids <- sample_n(birdgrid,n_males)
-  
-  # Detectable radius of each location
-  bird_TD = st_buffer(bird_centroids, bird_TrD)
-  
-  # Plot bird territories
-  bird_radius_m = round(bird_Tr*1000)
-  
-  ggplot() +
-    geom_sf(data = bird_TD,fill = "transparent", col = "blue")+
-    scale_fill_manual(values = c("transparent","orangered"),na.value = "transparent",name="Detection")+
-    coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
-    xlab("km")+ylab("km")+
-    ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
-```
+![](README_files/figure-markdown_github/chunk1-1.png)
 
 # Simulation results
 
