@@ -78,7 +78,7 @@ The plot below illustrates the spatial distribution of GHCH territories for one 
   
   bird_plot <- ggplot() +
     geom_sf(data = bird_TD,fill = "transparent", col = "blue")+
-    scale_fill_manual(values = c("transparent","orangered"),na.value = "transparent",name="Detection")+
+    scale_fill_manual(values = c("transparent","blue"),na.value = "transparent",name="Detection")+
     coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
     xlab("km")+ylab("km")+
     ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
@@ -108,9 +108,9 @@ Next, we position a number of ARUs on the landscape.
   
   # Plot ARU locations
   aru_plot <- ggplot() +
-    geom_sf(data = bird_TD,aes(fill = det), col = "blue", linetype = 2)+
+    geom_sf(data = bird_TD,fill = "transparent", col = "blue", linetype = 2)+
     geom_sf(data = aru_sf, shape = 19)+
-    scale_fill_manual(values = c("transparent","red"),na.value = "transparent",name="Detection")+
+     geom_sf(data = subset(bird_TD, det == "yes"),col = "red", shape = 19, size = 10)+
     coord_sf(xlim = c(-dim,dim), ylim = c(-dim,dim))+
     xlab("km")+ylab("km")+
     ggtitle(paste0("Number of males = ",n_males,"\nBird Territory Radius = ",bird_radius_m," m\nBird EDR = ",bird_EDR*1000," m"))
