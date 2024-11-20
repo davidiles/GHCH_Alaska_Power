@@ -28,12 +28,17 @@ are then used to conduct precision and power analyses.
 
 We assume in this example that there are 1000 GHCH pairs distributed
 across the landscape, such that density is 0.099 birds/km<sup>2</sup>.
+Later, we will conduct a full suite of simulations across multiple
+hypothetical GHCH population sizes.
+
+The plot below illustrates the spatial distribution of GHCH territories
+for one realization of the simulation.
 
 ![](README_files/figure-markdown_github/chunk1-1.png)
 
+Next, we position a number of ARUs on the landscape (in this example we
+position 300 ARUs):
+
+![](README_files/figure-markdown_github/chunk2-1.png)
+
 # Simulation results
-
-You can also embed plots, for example:
-
-Note that the `echo = FALSE` parameter was added to the code chunk to
-prevent printing of the R code that generated the plot.
