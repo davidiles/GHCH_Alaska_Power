@@ -8,7 +8,7 @@ estimate population sizes of Gray-headed Chickadee in Alaska.
 The simulation assumes that bird territories are distributed randomly
 across available habitat and that bird territory boundaries do not
 overlap. These simulations assume the area of potentially suitable GHCH
-habitat in AK is 1.0117^{4} km^2.
+habitat in AK is 10117 km<sup>2</sup>.
 
 # Simulation results
 

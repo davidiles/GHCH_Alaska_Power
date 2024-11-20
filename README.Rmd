@@ -31,10 +31,11 @@ The goal of this study is to evaluate the sample size requirements to estimate p
 
 ```{r, include=FALSE, echo = FALSE}
 rm(list=ls())
+options(scipen=10000)
 load("power_wksp.RData")
 ```
 
-The simulation assumes that bird territories are distributed randomly across available habitat and that bird territory boundaries do not overlap.  These simulations assume the area of potentially suitable GHCH habitat in AK is `r plot_area` km^2.
+The simulation assumes that bird territories are distributed randomly across available habitat and that bird territory boundaries do not overlap.  These simulations assume the area of potentially suitable GHCH habitat in AK is `r plot_area` km<sup>2</sup>.
 
 
 
