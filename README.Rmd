@@ -182,12 +182,11 @@ In brief, the model attempts to estimate the range of population sizes (and popu
 
 In this case, the estimate of number of GHCH pairs is: `r round(out$q50$popsize)` (95% CI = `r round(out$q2.5$popsize)` to `r round(out$q97.5$popsize)`); recall that the true population size in this simulation was `r n_males`.  The model estimates there is a `r 100*round(mean(out$sims.list$popsize < 1000),2)`% chance there are fewer than 1000 pairs in the study area.   
 
-```{r jags_results2}
-```
+These are only results for a single run of the simulation, and we want to understand how the sampling plan and analysis works *on average* - and how variable the results might be; this single run might be unrepresentative of how things tend to shake out.  We therefore run the simulations many times (e.g., 1000 times) and evaluate the spread of results across those many repeated simulations; this is known as Monte Carlo simulation.  
 
-Application of the statistical model to 
+# Simulation parameters
 
-# Simulation results
+We run simulations for 3 levels of sampling intensity (150, 300, and 600 ARU survey locations), and for 3 levels of population density (n_males = 500, 1000, and 2000) which corresponds to population densities of `r round(500/plot_area,2)`, `r round(000/plot_area,2)`, and `r round(2000/plot_area,2)` males/km<sup>2</sup>.
 
 
 ```{r chunk3, echo=FALSE}

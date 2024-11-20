@@ -115,6 +115,17 @@ to 1462); recall that the true population size in this simulation was
 1000. The model estimates there is a 83% chance there are fewer than
 1000 pairs in the study area.
 
-Application of the statistical model to
+These are only results for a single run of the simulation, and we want
+to understand how the sampling plan and analysis works *on average* -
+and how variable the results might be; this single run might be
+unrepresentative of how things tend to shake out. We therefore run the
+simulations many times (e.g., 1000 times) and evaluate the spread of
+results across those many repeated simulations; this is known as Monte
+Carlo simulation.
 
-# Simulation results
+# Simulation parameters
+
+We run simulations for 3 levels of sampling intensity (150, 300, and 600
+ARU survey locations), and for 3 levels of population density (n_males =
+500, 1000, and 2000) which corresponds to population densities of 0.05,
+0, and 0.2 males/km<sup>2</sup>.
