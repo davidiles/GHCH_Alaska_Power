@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   dev = "png",
   dev.args = list(type = "cairo-png"),
-  fig.width = 8,
+  fig.width = 12,
   fig.height = 8,
   eval = TRUE,
   echo = TRUE,
@@ -237,4 +237,5 @@ popest_plot <- ggplot(result_summary)+
   ggtitle(paste0("Population estimates for different combinations of\nn_ARU and n_males"))
 
 print(popest_plot)
+
 ```
