@@ -85,4 +85,34 @@ and must supply as data the area of potentially suitable habitat
 potentially suitable habitat (n_ARU = 300), and the number of ARUs that
 detected the species (y = 5) after being deployed for the entire season.
 
+In brief, the model attempts to estimate the range of population sizes
+(and population densities) that would be consistent with the observed
+number of detections, given the amount of survey effort that was
+conducted.
+
+``` r
+
+    # Analyze using JAGS
+  jags.data <- list(y = n_ARU_det,   # Number of ARUs that detected the species
+                    n_ARU = n_ARU,
+                    IAO_area = plot_area,
+                    territory_radius = bird_Tr,
+                    EDR = bird_EDR,
+                    pi = pi)
+  
+  out <- jags(data = jags.data,
+              model.file = "ghch_model.jags",
+              parameters.to.save = c("dens","popsize","popsize_prior","dens_prior"),n.chains = 3,
+              n.thin = 1,
+              n.iter = 6000,
+              n.burnin = 1000,
+              verbose = FALSE)
+    
+```
+
+In this case, the estimate of population size is: 685 with 95%
+equal-tailed credible interval of 257 to 1462.
+
+Application of the statistical model to
+
 # Simulation results
