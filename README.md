@@ -128,4 +128,22 @@ Carlo simulation.
 We run simulations for 3 levels of sampling intensity (150, 300, and 600
 ARU survey locations), and for 3 levels of population density (n_males =
 500, 1000, and 2000) which corresponds to population densities of 0.05,
-0, and 0.2 males/km<sup>2</sup>.
+0.1, and 0.2 males/km<sup>2</sup>.
+
+Note that this represents a range of low to medium, but biologically
+plausible population densities that have been observed elsewhere in the
+species’ range (Scandinavia).
+
+The goal of these simulations is to confirm that we would likely obtain
+detections of the species and could estimate population size accurately
+under realistic survey intensity and low population sizes.
+
+# Simulation results
+
+The plot below illustrates the number of detections that could be
+expected under various sampling intensity and population abundance
+scenarios. This figure illustrates that it is highly likely we would
+obtain at least one (and often more than one) detection under all the
+scenarios.
+
+![](README_files/figure-markdown_github/chunk3-1.png)

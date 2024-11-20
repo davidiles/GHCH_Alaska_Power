@@ -186,9 +186,31 @@ These are only results for a single run of the simulation, and we want to unders
 
 # Simulation parameters
 
-We run simulations for 3 levels of sampling intensity (150, 300, and 600 ARU survey locations), and for 3 levels of population density (n_males = 500, 1000, and 2000) which corresponds to population densities of `r round(500/plot_area,2)`, `r round(000/plot_area,2)`, and `r round(2000/plot_area,2)` males/km<sup>2</sup>.
+We run simulations for 3 levels of sampling intensity (150, 300, and 600 ARU survey locations), and for 3 levels of population density (n_males = 500, 1000, and 2000) which corresponds to population densities of `r round(500/plot_area,2)`, `r round(1000/plot_area,2)`, and `r round(2000/plot_area,2)` males/km<sup>2</sup>.
 
+Note that this represents a range of low to medium, but biologically plausible population densities that have been observed elsewhere in the species' range (Scandinavia).  
+
+The goal of these simulations is to confirm that we would likely obtain detections of the species and could estimate population size accurately under realistic survey intensity and low population sizes.
+
+
+# Simulation results
+
+The plot below illustrates the number of detections that could be expected under various sampling intensity and population abundance scenarios. This figure illustrates that it is highly likely we would obtain at least one (and often more than one) detection under all the scenarios.
 
 ```{r chunk3, echo=FALSE}
 
+# --------------------------------------------------
+# Plot expected number of detections under each scenario
+# --------------------------------------------------
+
+n_det_plot <- ggplot(all_results)+
+  geom_histogram(aes(x = n_detections), binwidth = 0.5)+
+  facet_grid( study_area_label + n_ARU_label ~ n_male_label)+
+  geom_text(data = result_summary,aes(x = 10, y = 150, label = paste0("Prob. of at least 1 detection = ",signif(result_summary$detected_species,2))),hjust=0)+
+  theme_bw()+
+  xlab("Number of detections")+
+  ylab("Frequency (number of simulations)")+
+  ggtitle("Summary of GHCH detections across repeated simulations")
+
+print(n_det_plot)
 ```
